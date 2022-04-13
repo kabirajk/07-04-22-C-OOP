@@ -17,7 +17,7 @@ class cred
 };
 class login
 {   private:
-    cred * login_list= (cred*) malloc(sizeof(cred)*3);
+    cred * login_list[3];
     int last_id=0;
     void auth_cred()
     {
@@ -30,8 +30,8 @@ class login
         int flag=1;
         for (int i=0;i<3;i++)
         {
-            if(un==login_list[i].username)
-                if(pw==login_list[i].password)
+            if(un==login_list[i]->username)
+                if(pw==login_list[i]->password)
                     {cout<<"success";
                     flag=1;
                     break;}
@@ -43,12 +43,15 @@ class login
     }
     public:
     void add_cred()
-    {   if (last_id==3)return;
-        login_list[last_id]=cred();
+    {   cout<<"called";
+        if (last_id==3)return;
+        login_list[last_id]= new cred();
         last_id+=1;
     }
     void Login()
-    {auth_cred();}
+    {
+        auth_cred();
+    }
 };
 int main()
 {   
