@@ -1,32 +1,32 @@
 #include <iostream>
 using namespace std;
 
-class time
+class Time
 {
     private:
     int HH;
     int MM;
     public:
-    time()
+    Time()
     {
         HH=0;
         MM=0;
     }
-    time(int hrs,int min)
+    Time(int hrs,int min)
     {
        HH=hrs;
        MM=min; 
     }
-    void set_time(int hrs,int min)
+    void set_Time(int hrs,int min)
     {
        HH=hrs;
        MM=min; 
     }
-    friend ostream & operator<<(ostream& out,time &t);
-    friend time operator+(time &current,int x);
+    friend ostream & operator<<(ostream& out,Time &t);
+    friend void operator+(Time &current,int x);
     
 };
-ostream& operator <<(ostream& out,time &t)
+ostream& operator <<(ostream& out,Time &t)
 {
     out.width(2);
     out.fill('0');
@@ -34,8 +34,9 @@ ostream& operator <<(ostream& out,time &t)
     out.width(2);
     out.fill('0');
     out<<t.MM;
+    return out;
 }
-time operator+(time& current,int x)
+void operator+(Time& current,int x)
 {
     int totalmiutes=current.HH*60+current.MM;
     totalmiutes+=x;
@@ -49,10 +50,10 @@ time operator+(time& current,int x)
 }
 int main()
 {   //
-    time t;
+    Time t;
     // t.HH=12;
     // t.MM=20;
-    t.set_time(12,20);
+    t.set_Time(12,20);
     cout<<t<<endl;
     t+1232;
     // cout.width(2);
