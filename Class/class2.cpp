@@ -26,7 +26,10 @@ class vehicle
 };
 
 int main()
-{
+{   
+    vehicle v;
+    v.set_data();
+    v.show_data();
     //encapsulated class(having member function and data)
     return 0;
 }

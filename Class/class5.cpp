@@ -34,9 +34,9 @@ class derived:public abstract_class
 // };
 
 int main()
-{   //lass with  abstract method
-    // derived d;
-    // d.setdata();
-    // d.printdata();
+{   //class with  abstract method
+    derived d;
+    d.setdata();
+    d.printdata();
     return 0;
 }
