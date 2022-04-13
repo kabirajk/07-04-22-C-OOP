@@ -4,7 +4,8 @@ using namespace std;
 class date
 {   int Date[8];
     public:
-    date():{}
+    date()
+    {}
     date(string s)
     {   int start=0;
         for (int i =0;s[i];i++)
@@ -14,7 +15,7 @@ class date
         }
     }
     friend ostream& operator<<(ostream& out,date d);
-    friend istream& operator>>(istream& in,date d);
+    friend istream& operator>>(istream& in,date &d);
 
 };
 
@@ -27,14 +28,28 @@ ostream& operator<< (ostream& out,date d)
     }
     return out;
 }
-
-
+istream& operator>>(istream& in,date & d)
+{   
+    string temp;
+    in>>temp;
+    
+    int start=0;
+        for (int i =0;temp[i];i++)
+        {
+            if(temp[i]<=57 and temp[i]>=48)
+                d.Date[start++]=temp[i]-48;
+        }
+    return in;
+    
+}
 
 int main()
 {
     date d("31.03.2002");
-    cout<<d;
+    cout<<d<<endl;
     date d1;
-    cin>>d;
+    cout<<"enter the date";
+    cin>>d1;
+    cout<<d1;
 return 0;
 }
